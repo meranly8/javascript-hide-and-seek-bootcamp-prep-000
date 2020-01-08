@@ -14,30 +14,32 @@ function increaseRankBy(n) {
 }
 
 function deepestChild() {
-  next = [...document.body.querySelector('div#grand-node').children]
-  console.log(`next = ${next}`)
-  depth = 0
-  current = next.shift()
-  while (current !== undefined) {
-    try {
-      while (current.child !== undefined) {
-        if(current.child.length > 0) {
-          for (let i = 0; i < current.child.length; i++) {
-            next.push(current.child[i])
-            console.log(`current = ${current}`)
-          }
-        } else { 
-          console.log(`There's no children here.`)
-          console.log(current)
-          return(current)
-      }
-    }
-    catch(error){
-      console.log(error)
-    }
+    
+    let next = [...document.body.querySelector('div#grand-node').children]
+    console.log(`next=${next}`)
+    let depth=0;
+    let current = next.shift()
+    while (current !== undefined) {
+        try{
+            while (current.children !== undefined){
+                if (current.children.length>0) { 
+                    for (let i = 0; i < current.children.length; i++) {
+                        next.push(current.children[i]) 
+                        console.log(`current = ${current}`)
+                    }
+                } else {
+                    console.log('no children here!')
+                    console.log(current)
+                    return(current)
+                }
+            console.log(`now next=${next}`)
+            current = next.shift()
+        }
+        }     
+        catch(error){
+            console.log(error)
+        }
     return current
-  }
+    }
 }
-
-deepestChild()
-
+deepestChild(); 
