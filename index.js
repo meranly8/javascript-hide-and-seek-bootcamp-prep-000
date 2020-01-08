@@ -12,3 +12,7 @@ function increaseRankBy(n) {
     ulRankedList[i].innerHTML = (parseInt(ulRankedList[i].innerHTML) + n).toString();
   }
 }
+
+function deepestChild() {
+  next = [...document.body.querySelector(`)]
+}
